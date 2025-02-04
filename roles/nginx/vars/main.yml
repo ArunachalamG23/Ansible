@@ -1,0 +1,4 @@
+nginx_pkg: "nginx" 
+nginx_svc: "nginx"
+nginx_svc_state: "restarted"
+nginx_enabled: true

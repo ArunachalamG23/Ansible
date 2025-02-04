@@ -1,0 +1,6 @@
+- name: copy files
+  become: "{{ nginx_enabled }}"
+  ansible.builtin.copy: 
+    src: files/index.html 
+    dest: /var/www/html 
+  notify: Restart Nginx
