@@ -1,0 +1,16 @@
+---
+- name: install nginx
+  hosts: web
+  become: yes 
+  tasks:
+    - name: install nginx 
+      apt: 
+        name: nginx 
+        state: latest
+      notify : restart nginx 
+  handlers: 
+    - name: restart nginx 
+      ansible.builtin.service: 
+        name: nginx 
+        state: restarted 
+      

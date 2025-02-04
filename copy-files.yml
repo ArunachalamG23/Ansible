@@ -1,0 +1,17 @@
+- name: copy files
+  hosts: web 
+  become: yes 
+  tasks: 
+    - name: copy files from src to dest 
+      ansible.builtin.copy:
+        src: ~/test
+        dest: /home/ubuntu
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+      notify: restart nginx 
+  handlers:
+    - name: restart nginx 
+      ansible.builtin.service: 
+        name: nginx 
+        state: restarted
