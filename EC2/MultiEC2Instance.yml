@@ -18,6 +18,6 @@
       tags:
         environment: "{{ item.name }}"
     loop:
-      - { image: "ami-0e1d06225679bc1c5", name: "instance-1" } # Update AMI ID according 
-      - { image: "ami-0f58b397bc5c1f2e8", name: "instance-2" } # to your account
-      - { image: "ami-0f58b397bc5c1f2e8", name: "instance-3" }
+      - { image: "ami-00bb6a80f01f03502", name: "instance-1" } # Update AMI ID according 
+      - { image: "ami-00bb6a80f01f03502", name: "instance-2" } # to your account
+      - { image: "ami-0c50b6f7dc3701ddd", name: "instance-3" }
