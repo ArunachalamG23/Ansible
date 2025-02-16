@@ -9,3 +9,5 @@ then we need to create a vault file named pass.yml "ansible-vault create group_v
 next we can enter out sensitive credentials inside of pass.yml and if we need to edit we can use "ansible-vault edit group_vars/all/pass.yml --vault-password-file vault.pass"
 when we enter it and written playbook we need to use it as "ansible-playbook EC2.yml --vault-password-file vault.pass" this could authenticate the file and ensure the datas are configure in the mentioned resource.
 
+
+
