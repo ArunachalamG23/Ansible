@@ -1,0 +1,25 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Start and Enable Nginx
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Configure Nginx for WordPress
+  template:
+    src: wordpress-nginx.conf.j2
+    dest: /etc/nginx/sites-available/wordpress
+  notify: Restart Nginx
+
+- name: Enable WordPress Nginx Configuration
+  file:
+    src: /etc/nginx/sites-available/wordpress
+    dest: /etc/nginx/sites-enabled/wordpress
+    state: link
+  notify: Restart Nginx

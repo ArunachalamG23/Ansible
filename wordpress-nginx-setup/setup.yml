@@ -1,0 +1,7 @@
+---
+- name: Deploy Wordpress with Nginx
+  hosts: web 
+  become: yes
+  roles:
+    - wordpress
+    - nginx 
