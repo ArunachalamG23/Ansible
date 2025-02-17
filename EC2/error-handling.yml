@@ -1,0 +1,23 @@
+---
+- hosts: web 
+  become: true 
+  tasks: 
+    - name: install packages
+      ansible.builtin.apt: 
+        name: "{{ item }}"
+        state: latest 
+      loop: 
+        - nginx
+        - openssh 
+      ignore_errors: true 
+    - name: verify mysql is installed
+      ansible.builtin.command: sudo systemctl status mysql-server
+      register: output
+      ignore_errors: true 
+    - name: mysql installation if not installed 
+      ansible.builtin.apt: 
+        name: mysql-server 
+        state: present
+        update_cache: true
+      when: output.failed
+      
